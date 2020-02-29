@@ -147,10 +147,30 @@ app.get('/callback', function(req, res) {
                   var bpop = b.popularity;
                   var aener = a.energy;
                   var bener = b.energy;
+                  var adance = a.danceability;
+                  var bdance = b.danceability;
+                  var aloud = a.loudness;
+                  var bloud = b.loudness;
               
                   if(pop == bpop)
                   {
-                      return (aener < bener) ? -1 : (aener > bener) ? 1 : 0;
+                    if(aener == bener){
+                      if(adance == bdance){
+                        if(aloud > bloud){
+                          return 1
+                        }else{
+                          return -1
+                        }
+                      }else if(adance > bdance){
+                        return 1
+                      }else{
+                        return -1
+                      }
+                    }else if(aener > bener){
+                      return 1
+                    }else{
+                      return -1
+                    }
                   }
                   else
                   {
