@@ -86,7 +86,7 @@ app.get('/callback', function(req, res) {
       };
   
       request.post(authOptions, function(error, response, body) {
-        res.redirect('test.html\?auth=' + body.access_token)
+        res.redirect('host.html\?auth=' + body.access_token)
       });
 
     }else{
@@ -182,7 +182,7 @@ app.get('/callback', function(req, res) {
                 setTimeout(function() {
                   queue.push([final_data])
 
-                  res.redirect('anurag.html')
+                  res.redirect('guest.html')
                 }, 2000)
                 
               }
