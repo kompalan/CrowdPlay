@@ -40,7 +40,7 @@ app.use(express.static(__dirname + '/public'))
    .use(cors())
    .use(cookieParser());
 
-app.use(f)
+//app.use(f)
 
 app.get('/login/:role', function(req, res) {
 
