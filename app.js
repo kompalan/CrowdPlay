@@ -135,15 +135,23 @@ app.get('/callback', function(req, res) {
                     uri: body.items[index].uri,
                     danceability: Math.round(parseFloat(result.danceability))*100,
                     energy: Math.round(parseFloat(result.energy))*100,
-                    loudness: Math.round(parseFloat(result.loudness)/100)*-10,
+                    loudness: Math.round(parseFloat(result.loudness)/10)*-10,
                     popularity: body.items[index].popularity
                   })
 
                   processItems(body, index+1, final_data)
                 });
               }else{
-                queue.push([final_data])             
-                res.redirect('anurag.html')
+                final_data.sort(function(a, b){
+                  return a.energy-b.energy
+                })
+                
+                setTimeout(function() {
+                  queue.push([final_data])
+
+                  res.redirect('anurag.html')
+                }, 2000)
+                
               }
               
             }
