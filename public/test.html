@@ -19,15 +19,17 @@
             }
         })
     }, 5000)
+    setInterval(() => {
+        $.ajax({
+            url: 'https://api.spotify.com/v1/me/player/currently-playing',
+            headers: {
+                'Authorization': 'Bearer ' + access_token
+            },
 
-    $.ajax({
-        url: 'https://api.spotify.com/v1/me/player/currently-playing',
-        headers: {
-            'Authorization': 'Bearer ' + access_token
-        },
-
-        success: function(response) {
-            document.getElementById("currentlyPlaying").innerHTML = response.name
-        }
-    })
+            success: function(response) {
+                document.getElementById("currentlyPlaying").innerHTML = response.name
+            }
+        })
+    }, 5000)
+    
 </script>
