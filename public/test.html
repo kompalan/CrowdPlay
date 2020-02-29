@@ -7,22 +7,16 @@
 
 <script>
     var n = 1
+    var songs = []
+    var url = window.location.href.split("?")[1].replace("auth=", "")
     setInterval(() => {
         $.ajax({
             url: "/querySongs",
             type: "GET",
             success: function(result) {
-                var url = window.location.href.split("?")[1].replace("auth=", "")
-                $.ajax({
-                    url: 'https://api.spotify.com/v1/me/player/add-to-queue\?uri=' + "spotify:track:0nbXyq5TXYPCO7pr3N8S4I".replace(":", "%3A"),
-                    type: "POST",
-                    headers: {
-                        'Authorization': 'Bearer ' + url
-                    },
-                    success: function(response) {
-                        console.log(response)
-                    }
-                });
+                for(var i = 0; i<result[0].length; i++){
+                    songs.push(result[0][i].uri)
+                }
             },
             error:function(error) {
                 console.log(`Error ${error}`)
@@ -30,17 +24,19 @@
         })
     }, 5000)
 
-    // setInterval(() => {
-    //     $.ajax({
-    //         url: 'https://api.spotify.com/v1/me/player/add-to-queue\?uri=' + "spotify:track:0nbXyq5TXYPCO7pr3N8S4I".replace(":", "%3A"),
-    //         type: "POST",
-    //         headers: {
-    //             'Authorization': 'Bearer ' + url
-    //         },
-    //         success: function(response) {
-    //             console.log(response)
-    //         }
-    //     });
-    // }, 5000)
+    setInterval(() => {
+        if(songs.length != 0){
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me/player/add-to-queue\?uri=' + songs.pop().replace(":", "%3A"),
+                type: "POST",
+                headers: {
+                    'Authorization': 'Bearer ' + url
+                },
+                success: function(response) {
+                    console.log(response)
+                }
+            });
+        }
+    }, 5000)
     
 </script>
