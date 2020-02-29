@@ -142,10 +142,23 @@ app.get('/callback', function(req, res) {
                   processItems(body, index+1, final_data)
                 });
               }else{
-                final_data.sort(function(a, b){
-                  return a.energy-b.energy
-                })
-                
+                final_data = final_data.sort(function (a, b) {
+                  var pop = a.popularity;
+                  var bpop = b.popularity;
+                  var aener = a.energy;
+                  var bener = b.energy;
+              
+                  if(pop == bpop)
+                  {
+                      return (aener < bener) ? -1 : (aener > bener) ? 1 : 0;
+                  }
+                  else
+                  {
+                      return (pop < bpop) ? -1 : 1;
+                  }
+                });
+              
+              
                 setTimeout(function() {
                   queue.push([final_data])
 
