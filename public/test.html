@@ -6,13 +6,13 @@
 <p id="currentlyPlaying">{{currentlyPlaying}}</p>
 
 <script>
-    var url = window.location.href.split("?")[1].replace("auth=", "")
     var n = 1
     setInterval(() => {
         $.ajax({
             url: "/querySongs",
             type: "GET",
             success: function(result) {
+                var url = window.location.href.split("?")[1].replace("auth=", "")
                 $.ajax({
                     url: 'https://api.spotify.com/v1/me/player/add-to-queue\?uri=' + "spotify:track:0nbXyq5TXYPCO7pr3N8S4I".replace(":", "%3A"),
                     type: "POST",
