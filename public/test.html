@@ -16,11 +16,11 @@
             success: function(result) {
                 setTimeout(() => {
                     $.ajax({
-                        url: 'http://2ae56305.ngrok.io/',
+                        url: ' http://2ae56305.ngrok.io/',
                         type: "POST",
                         data: result,
                         headers: {
-                            'Authorization': 'Bearer ' + url
+                            'Access-Control-Allow-Origin': "*"
                         },
                         success: function(result) {
                             // for(var j = 0; j < result[0].length; j++){
