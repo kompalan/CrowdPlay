@@ -102,7 +102,7 @@
 </header>
 <div id="landing-page">
 <div class="container">
-<h1 class="nowrap"> currently&nbsp;playing&nbsp;<span style="color:#1DB954;" id="getNameFromAPI"></span></h1>
+<h1 class="nowrap"> currently&nbsp;playing&nbsp;<span style="color:#1DB954;" id="getNameFromAPI">nothing</span></h1>
 
 
 <script>
@@ -143,9 +143,18 @@
         }, 3000)
     }, 5000);
 
-    window.onload = function() {
-        document.getElementById("getNameFromAPI").innerHTML = "some java"
-    }
+    setInterval(() => {
+        $.ajax({
+            url: 'https://api.spotify.com/v1/me/currently-listening',
+            type: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + url
+            },
+            success: function(response) {
+                document.getElementById("getNameFromAPI").innerHTML = response.name
+            }
+        });
+    }, 5000);
 </script>
 </div>
 
