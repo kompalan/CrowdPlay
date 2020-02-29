@@ -132,9 +132,6 @@ app.get('/callback', function(req, res) {
                 
                 request.get(options_2, function(error, response, result) {
                   final_data.push({
-                    id:body.items[index].uri,
-                    album:body.items[index].album.name,
-                    id: body.items[index].id,
                     uri: body.items[index].uri,
                     features: result
                   })
