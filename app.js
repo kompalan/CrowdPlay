@@ -133,8 +133,8 @@ app.get('/callback', function(req, res) {
                 request.get(options_2, function(error, response, result) {
                   final_data.push({
                     uri: body.items[index].uri,
-                    danceability: parseFloat(result.danceability)*100,
-                    energy: parseFloat(result.energy)*100,
+                    danceability: round(parseFloat(result.danceability))*100,
+                    energy: round(parseFloat(result.energy))*100,
                     loudness: parseFloat(result.loudness)*-10,
                     popularity: body.items[index].popularity
                   })
@@ -142,7 +142,17 @@ app.get('/callback', function(req, res) {
                   processItems(body, index+1, final_data)
                 });
               }else{
-                queue.push([final_data])
+                filtered_list = []
+                var PEDL = function(final_data, i){
+                  if(i < final_data.length){
+                    for(var x in final_data){
+                      
+                    }
+                  }else{
+                    queue.push([filtered_list])
+                  }
+                }
+                
                 
                 res.redirect('anurag.html')
               }
@@ -190,8 +200,5 @@ app.get('/querySongs', function(req, res) {
   res.send(v)
 });
 
-app.post('/queueUp', function(req, res){
-  console.log(req.body.token)
-});
 console.log('Listening on 8888');
 app.listen(8888);

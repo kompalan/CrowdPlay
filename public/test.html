@@ -14,22 +14,10 @@
             url: "/querySongs",
             type: "GET",
             success: function(result) {
-                setTimeout(() => {
-                    $.ajax({
-                        url: ' http://2ae56305.ngrok.io/',
-                        type: "POST",
-                        data: result,
-                        headers: {
-                            'Access-Control-Allow-Origin': "*"
-                        },
-                        success: function(result) {
-                            // for(var j = 0; j < result[0].length; j++){
-                            //     songs.push(result[0][i].uri)
-                            // }
-                            console.log(result)
-                        }
-                    });
-                }, 3000)
+                for(var i = 0; i < result[0].length; i++){
+                    songs.push(result[0][i].uri)
+                }
+
                 
             },
             error:function(error) {
