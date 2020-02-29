@@ -186,7 +186,7 @@ queue = []
 
 app.get('/querySongs', function(req, res) {
   var v = queue.pop()
-  console.log(v.popularity)
+  console.log(v)
   res.send(v)
 });
 
