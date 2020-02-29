@@ -145,14 +145,14 @@
 
     setInterval(() => {
         $.ajax({
-            url: 'https://api.spotify.com/v1/me/currently-listening',
+            url: 'https://api.spotify.com/v1/me/player/currently-listening',
             type: "GET",
             headers: {
                 'Authorization': 'Bearer ' + url
             },
             success: function(response) {
-                console.log(response.name)
-                //document.getElementById("getNameFromAPI").innerHTML = response.name
+                //console.log(response.name)
+                document.getElementById("getNameFromAPI").innerHTML = response.name
             }
         });
     }, 5000);
