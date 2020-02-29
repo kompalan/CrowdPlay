@@ -133,8 +133,8 @@ app.get('/callback', function(req, res) {
                 request.get(options_2, function(error, response, result) {
                   final_data.push({
                     uri: body.items[index].uri,
-                    danceability: Math.round(parseFloat(result.danceability))*100,
-                    energy: Math.round(parseFloat(result.energy))*100,
+                    danceability: parseFloat(result.danceability)*100,
+                    energy: parseFloat(result.energy)*100,
                     loudness: parseFloat(result.loudness)*-10,
                     popularity: body.items[index].popularity
                   })
