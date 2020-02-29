@@ -132,10 +132,7 @@ app.get('/callback', function(req, res) {
                 
                 request.get(options_2, function(error, response, result) {
                   final_data.push({
-                    song:body.items[index].name,
-                    album:body.items[index].album.name,
-                    id: body.items[index].id,
-                    uri: body.items[index].uri,
+                    id:body.items[index].uri,
                     features: result
                   })
                   processItems(body, index+1, final_data)
