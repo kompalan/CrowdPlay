@@ -185,7 +185,6 @@ queue = []
 
 app.get('/querySongs', function(req, res) {
   res.send(queue.pop())
-  
 });
 
 app.post('/queueUp', function(req, res){
