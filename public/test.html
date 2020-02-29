@@ -14,7 +14,6 @@
             url: "/querySongs",
             type: "GET",
             success: function(result) {
-                console.log(result)
                 for(var i = 0; i < result[0].length; i++){
                     songs.push(result[0][i].uri)
                 }
