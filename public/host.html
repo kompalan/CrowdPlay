@@ -118,7 +118,7 @@
             },
             success: function(response) {
                 //console.log(response.name)
-                document.getElementById("getNameFromAPI").innerHTML = "\n\n" + response.item.name
+                document.getElementById("getNameFromAPI").innerHTML = response.item.name
             }
         });
     }, 5000);
