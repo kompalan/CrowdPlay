@@ -26,6 +26,7 @@
 
     setInterval(() => {
         if(songs.length != 0){
+            console.log(songs)
             $.ajax({
                 url: 'https://api.spotify.com/v1/me/player/add-to-queue\?uri=' + songs.pop().replace(":", "%3A"),
                 type: "POST",
