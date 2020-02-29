@@ -14,28 +14,23 @@
             url: "/querySongs",
             type: "GET",
             success: function(result) {
-                for(var i = 0; i<result[0].length; i++){
-                    songs.push(result[0][i].uri)
-                    console.log(result)
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me/player/add-to-queue\?uri=' + songs.pop().replace(":", "%3A"),
+                type: "POST",
+                headers: {
+                    'Authorization': 'Bearer ' + url
+                },
+                success: function(response) {
+                    console.log(response)
+                },
+                error: function(response){
+                    console.log(`Error ${error}`)
                 }
+            });
             },
             error:function(error) {
                 console.log(`Error ${error}`)
             }
         })
     }, 5000)
-
-    setInterval(() => {
-        $.ajax({
-            url: 'https://api.spotify.com/v1/me/player/add-to-queue\?uri=' + songs.pop().replace(":", "%3A"),
-            type: "POST",
-            headers: {
-                'Authorization': 'Bearer ' + url
-            },
-            success: function(response) {
-                console.log(response)
-            }
-        });
-    }, 5000)
-    
 </script>
