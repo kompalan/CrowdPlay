@@ -13,7 +13,7 @@
             url: "/querySongs",
             type: "GET",
             success: function(result) {
-                console.log(result)
+                console.log(result[0].name)
             },
             error:function(error) {
                 console.log(`Error ${error}`)
@@ -21,17 +21,17 @@
         })
     }, 5000)
 
-    setInterval(() => {
-        $.ajax({
-            url: 'https://api.spotify.com/v1/me/player/add-to-queue\?uri=' + "spotify:track:0nbXyq5TXYPCO7pr3N8S4I".replace(":", "%3A"),
-            type: "POST",
-            headers: {
-                'Authorization': 'Bearer ' + url
-            },
-            success: function(response) {
-                console.log(response)
-            }
-        });
-    }, 5000)
+    // setInterval(() => {
+    //     $.ajax({
+    //         url: 'https://api.spotify.com/v1/me/player/add-to-queue\?uri=' + "spotify:track:0nbXyq5TXYPCO7pr3N8S4I".replace(":", "%3A"),
+    //         type: "POST",
+    //         headers: {
+    //             'Authorization': 'Bearer ' + url
+    //         },
+    //         success: function(response) {
+    //             console.log(response)
+    //         }
+    //     });
+    // }, 5000)
     
 </script>
