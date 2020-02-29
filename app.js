@@ -86,7 +86,7 @@ app.get('/callback', function(req, res) {
       };
   
       request.post(authOptions, function(error, response, body) {
-        res.redirect('test.html')
+        res.redirect('test.html\?auth=' + body.access_token)
       });
 
     }else{
