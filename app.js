@@ -17,8 +17,6 @@ var client_id = '300359a5c21342d68050dea1f4815dc0'; // Your client id
 var client_secret = '3fb4df6a4eb2410b90d087950be207da'; // Your secret
 var redirect_uri = 'http://anuragkompalli.com:8888/callback'; // Your redirect uri
 
-const https = require('https')
-
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -135,13 +133,16 @@ app.get('/callback', function(req, res) {
                 request.get(options_2, function(error, response, result) {
                   final_data.push({
                     id:body.items[index].uri,
+                    album:body.items[index].album.name,
+                    id: body.items[index].id,
+                    uri: body.items[index].uri,
                     features: result
                   })
                   processItems(body, index+1, final_data)
                 });
               }else{
-                
                 queue.push([final_data])
+                
                 res.redirect('anurag.html')
               }
               
@@ -183,7 +184,6 @@ app.get('/refresh_token', function(req, res) {
 queue = []
 
 app.get('/querySongs', function(req, res) {
-  //console.log(queue)
   res.send(queue.pop())
 });
 
