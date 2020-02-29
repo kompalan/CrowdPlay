@@ -143,9 +143,7 @@ app.get('/callback', function(req, res) {
               }else{
                 queue.push([final_data])
 
-                setTimeout(function() {
-                  res.send("Thank You")
-                }, 3000)
+                res.send('anurag.html')
               }
               
             }

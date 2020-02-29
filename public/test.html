@@ -3,8 +3,10 @@
 </head> 
 
 <p>This is the host page</p>
+<p id="currentlyPlaying">{{currentlyPlaying}}</p>
 
 <script>
+    var access_token = new URL(window.location.href)
     setInterval(() => {
         $.ajax({
             url: "/querySongs",
@@ -17,4 +19,9 @@
             }
         })
     }, 5000)
+
+    oauthPlaceholder.innerHTML = oauthTemplate({
+        access_token: access_token,
+        refresh_token: refresh_token
+    });
 </script>
