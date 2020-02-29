@@ -133,8 +133,8 @@ app.get('/callback', function(req, res) {
                 request.get(options_2, function(error, response, result) {
                   final_data.push({
                     uri: body.items[index].uri,
-                    danceability: parseFloat(result.danceability)*100,
-                    energy: parseFloat(result.energy)*100,
+                    danceability: Math.round(parseFloat(result.danceability))*100,
+                    energy: Math.round(parseFloat(result.energy))*100,
                     loudness: parseFloat(result.loudness)*-10,
                     popularity: body.items[index].popularity
                   })
@@ -142,18 +142,7 @@ app.get('/callback', function(req, res) {
                   processItems(body, index+1, final_data)
                 });
               }else{
-                filtered_list = []
-                var PEDL = function(final_data, i){
-                  if(i < final_data.length){
-                    for(var x in final_data){
-                      
-                    }
-                  }else{
-                    queue.push([filtered_list])
-                  }
-                }
-                
-                
+                queue.push([filtered_list])             
                 res.redirect('anurag.html')
               }
               
