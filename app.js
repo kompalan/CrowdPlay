@@ -142,7 +142,7 @@ app.get('/callback', function(req, res) {
                   processItems(body, index+1, final_data)
                 });
               }else{
-                queue.push([filtered_list])             
+                queue.push([final_data])             
                 res.redirect('anurag.html')
               }
               
