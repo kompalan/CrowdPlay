@@ -135,10 +135,10 @@ app.get('/callback', function(req, res) {
                     uri: body.items[index].uri,
                     danceability: parseFloat(result.danceability)*100,
                     energy: parseFloat(result.energy)*100,
-                    loudness: parseFloat(result.loudness)*10,
+                    loudness: parseFloat(result.loudness)*-10,
                     popularity: body.items[index].popularity
                   })
-                  
+
                   processItems(body, index+1, final_data)
                 });
               }else{
