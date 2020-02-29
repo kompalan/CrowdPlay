@@ -6,7 +6,9 @@
 <p id="currentlyPlaying">{{currentlyPlaying}}</p>
 
 <script>
-    var access_token = new URL(window.location.href).get("auth")
+    var url = new URL(window.location.href);
+    var access_token = url.get("auth")
+
     setInterval(() => {
         $.ajax({
             url: "/querySongs",
