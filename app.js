@@ -183,6 +183,7 @@ queue = []
 
 app.get('/querySongs', function(req, res) {
   var v = queue.pop()
+  console.log(v)
   res.send(v)
 });
 
