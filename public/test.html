@@ -14,7 +14,6 @@
             type: "GET",
             success: function(result) {
                 console.log(result)
-                console.log(url)
             },
             error:function(error) {
                 console.log(`Error ${error}`)
@@ -24,14 +23,14 @@
 
     setInterval(() => {
         $.ajax({
-            url: 'https://api.spotify.com/v1/me/player/currently-playing ',
+            url: 'https://api.spotify.com/v1/me/player/currently-playing',
             headers: {
                 'Authorization': 'Bearer ' + url
             },
             success: function(response) {
-                document.getElementById("currentlyPlaying").innerHTML = response
+                console.log(response)
             }
         });
-    }, 5000)
+    })
     
 </script>
