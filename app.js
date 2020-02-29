@@ -41,7 +41,7 @@ app.use(express.static(__dirname + '/public'))
    .use(cors())
    .use(cookieParser());
 
-app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
+app.use(favicon('public/images/icons/favicon.ico'));
 app.use(f)
 
 app.get('/login/:role', function(req, res) {
