@@ -144,7 +144,7 @@ app.get('/callback', function(req, res) {
                 queue.push([final_data])
 
                 setTimeout(function() {
-                  res.send(final_data)
+                  res.send("Thank You")
                 }, 3000)
               }
               
