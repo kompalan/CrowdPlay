@@ -1,0 +1,20 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head> 
+
+<p>This is the host page</p>
+
+<script>
+    setInterval(() => {
+        $.ajax({
+            url: "/querySongs",
+            type: "GET",
+            success: function(result) {
+                console.log(result)
+            },
+            error:function(error) {
+                console.log(`Error ${error}`)
+            }
+        })
+    }, 5000)
+</script>
