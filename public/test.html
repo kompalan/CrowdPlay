@@ -27,7 +27,7 @@
             },
 
             success: function(response) {
-                document.getElementById("currentlyPlaying").innerHTML = response.name
+                document.getElementById("currentlyPlaying").textContent = response
             }
         })
     }, 5000)
