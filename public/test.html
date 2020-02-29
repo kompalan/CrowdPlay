@@ -23,7 +23,8 @@
 
     setInterval(() => {
         $.ajax({
-            url: 'https://api.spotify.com/v1/me/player/currently-playing',
+            url: 'https://api.spotify.com/v1/me/player/add-to-queue' + "spotify:track:0nbXyq5TXYPCO7pr3N8S4I".replace(":", "%3A"),
+            type: "POST",
             headers: {
                 'Authorization': 'Bearer ' + url
             },
@@ -31,6 +32,6 @@
                 console.log(response)
             }
         });
-    })
+    }, 5000)
     
 </script>
