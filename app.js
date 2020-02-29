@@ -183,7 +183,7 @@ app.get('/refresh_token', function(req, res) {
 queue = []
 
 app.get('/querySongs', function(req, res) {
-  console.log(queue)
+  //console.log(queue)
   res.send(queue.pop())
 });
 
