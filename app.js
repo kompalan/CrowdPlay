@@ -133,7 +133,10 @@ app.get('/callback', function(req, res) {
                 request.get(options_2, function(error, response, result) {
                   final_data.push({
                     uri: body.items[index].uri,
-                    features: result
+                    popularity: result.danceability,
+                    energy: result.energy,
+                    loudness: result.loudness,
+                    popularity: body.items[index].popularity
                   })
                   processItems(body, index+1, final_data)
                 });
@@ -183,7 +186,7 @@ queue = []
 
 app.get('/querySongs', function(req, res) {
   var v = queue.pop()
-  console.log(v)
+  console.log(v.popularity)
   res.send(v)
 });
 
