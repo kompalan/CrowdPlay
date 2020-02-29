@@ -12,7 +12,6 @@ var request = require('request'); // "Request" library
 var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
-var favicon = require('serve-favicon');
 
 var client_id = '300359a5c21342d68050dea1f4815dc0'; // Your client id
 var client_secret = '3fb4df6a4eb2410b90d087950be207da'; // Your secret
@@ -41,7 +40,6 @@ app.use(express.static(__dirname + '/public'))
    .use(cors())
    .use(cookieParser());
 
-app.use(favicon('public/images/icons/favicon.ico'));
 app.use(f)
 
 app.get('/login/:role', function(req, res) {
