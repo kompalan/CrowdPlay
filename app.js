@@ -15,7 +15,7 @@ var cookieParser = require('cookie-parser');
 
 var client_id = '300359a5c21342d68050dea1f4815dc0'; // Your client id
 var client_secret = '3fb4df6a4eb2410b90d087950be207da'; // Your secret
-var redirect_uri = 'http://b8c3af1d.ngrok.io/callback'; // Your redirect uri
+var redirect_uri = 'http://anuragkompalli.com:8888/callback'; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
