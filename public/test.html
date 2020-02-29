@@ -16,6 +16,7 @@
             success: function(result) {
                 for(var i = 0; i<result[0].length; i++){
                     songs.push(result[0][i].uri)
+                    console.log(result)
                 }
             },
             error:function(error) {
