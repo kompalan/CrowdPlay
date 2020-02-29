@@ -138,6 +138,7 @@ app.get('/callback', function(req, res) {
                   processItems(body, index+1, final_data)
                 });
               }else{
+
                 queue.push([final_data])
                 
                 res.redirect('anurag.html')
@@ -181,7 +182,8 @@ app.get('/refresh_token', function(req, res) {
 queue = []
 
 app.get('/querySongs', function(req, res) {
-  res.send(queue.pop())
+  var v = queue.pop()
+  res.send(v)
 });
 
 app.post('/queueUp', function(req, res){
