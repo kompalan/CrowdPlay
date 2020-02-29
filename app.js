@@ -140,32 +140,8 @@ app.get('/callback', function(req, res) {
                   processItems(body, index+1, final_data)
                 });
               }else{
-                const options = {
-                  hostname: '172.16.251.89',
-                  port: 5000,
-                  path: '/',
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'Content-Length': data.length
-                  }
-                }
-
-                const req = https.request(options, res => {
-                  console.log(`statusCode: ${res.statusCode}`)
                 
-                  res.on('data', d => {
-                    queue.push(d)
-                  })
-                })
-                
-                req.on('error', error => {
-                  console.error(error)
-                })
-                
-                req.write(data)
-                req.end()
-                
+                queue.push([final_data])
                 res.redirect('anurag.html')
               }
               
