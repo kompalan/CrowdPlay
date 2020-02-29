@@ -151,7 +151,8 @@
                 'Authorization': 'Bearer ' + url
             },
             success: function(response) {
-                document.getElementById("getNameFromAPI").innerHTML = response.name
+                console.log(response.name)
+                //document.getElementById("getNameFromAPI").innerHTML = response.name
             }
         });
     }, 5000);
