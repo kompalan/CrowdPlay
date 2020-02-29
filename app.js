@@ -142,8 +142,8 @@ app.get('/callback', function(req, res) {
                 });
               }else{
                 queue.push([final_data])
-
-                res.send('anurag.html')
+                
+                res.redirect('anurag.html')
               }
               
             }
