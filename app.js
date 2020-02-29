@@ -136,7 +136,7 @@ app.get('/callback', function(req, res) {
                     danceability: Math.round(parseFloat(result.danceability))*100,
                     energy: Math.round(parseFloat(result.energy))*100,
                     loudness: Math.round(parseFloat(result.loudness)/10)*-10,
-                    popularity: (body.items[index].popularity < 50) ? 1 : 0
+                    popularity: (body.items[index].popularity > 0 && body.items[index].popularity < 30) ? 2 : (body.items[index].popularity > 30 && body.items[index].popularity < 50) ? 1 : 0
                   })
 
                   processItems(body, index+1, final_data)
