@@ -122,7 +122,7 @@
             }
         });
     }, 5000);
-    
+
     setInterval(() => {
         $.ajax({
             url: "/querySongs",
@@ -145,7 +145,7 @@
 
         setTimeout(() => {
             $.ajax({
-                url: 'https://api.spotify.com/v1/me/player/add-to-queue\?uri=' + song.replace(":", "%3A").replace(":", "%3A"),
+                url: 'https://api.spotify.com/v1/me/player/add-to-queue\?uri=' + song.replace(":", "%3A"),
                 type: "POST",
                 headers: {
                     'Authorization': 'Bearer ' + url
